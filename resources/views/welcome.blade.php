@@ -29,7 +29,7 @@
     <nav :class="{'bg-white shadow-sm py-3': scrolled, 'bg-transparent py-5': !scrolled}" class="fixed top-0 w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="{{ asset('images/logo.png') }}" alt="ODOT ERP Logo" class="h-10 w-auto rounded-lg">
+                <img src="{{ asset('images/logo.png') }}" alt="ODOT ERP Logo" class="h-16 md:h-20 w-auto">
                 <span class="font-bold text-2xl tracking-tight text-slate-900 hidden sm:block">ODOT</span>
             </div>
             
@@ -228,7 +228,7 @@
     <footer class="bg-slate-900 py-12 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3">
-                <img src="{{ asset('images/logo.png') }}" alt="ODOT" class="h-8 w-auto grayscale opacity-70">
+                <img src="{{ asset('images/logo.png') }}" alt="ODOT" class="h-12 md:h-14 w-auto grayscale opacity-70">
                 <span class="text-xl font-bold text-slate-400">ODOT ERP</span>
             </div>
             

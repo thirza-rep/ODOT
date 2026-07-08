@@ -7,8 +7,8 @@
 
     {{-- Logo / Brand --}}
     <div class="flex items-center gap-3 px-5 h-16 border-b border-surface-100 shrink-0">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-sm shrink-0">
-            <span class="text-white font-bold text-sm">O</span>
+        <div class="w-9 h-9 flex items-center justify-center shrink-0">
+            <img src="{{ asset('images/logo.png') }}" alt="ODOT ERP" class="w-full h-full object-contain rounded-lg">
         </div>
         <div x-show="sidebarOpen" x-transition class="overflow-hidden">
             <h1 class="text-lg font-bold text-slate-800 leading-tight">ODOT</h1>

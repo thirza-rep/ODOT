@@ -2,8 +2,8 @@
     <div class="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-8 md:p-10 animate-fade-in">
         {{-- Logo --}}
         <div class="text-center mb-8">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-lg shadow-primary-500/30">
-                <span class="text-white font-bold text-2xl">O</span>
+            <div class="w-20 h-20 mx-auto mb-4 rounded-2xl flex items-center justify-center">
+                <img src="{{ asset('images/logo.png') }}" alt="ODOT ERP Logo" class="w-full h-full object-contain rounded-2xl shadow-lg shadow-primary-500/20">
             </div>
             <h1 class="text-2xl font-bold text-slate-800">Selamat Datang</h1>
             <p class="text-slate-500 text-sm mt-1">Masuk ke ODOT ERP untuk melanjutkan</p>

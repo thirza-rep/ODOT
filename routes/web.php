@@ -11,12 +11,14 @@ use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\PosController;
 use App\Http\Controllers\ReportController;
 
-// ──────────────── Guest Routes ────────────────
+// ──────────────── Landing Page ────────────────
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
 
+// ──────────────── Guest Routes ────────────────
 Route::middleware('guest')->group(function () {
-    Route::get('/',      [LoginController::class, 'showLoginForm'])->name('login');
-    Route::post('/',     [LoginController::class, 'login']); // Fallback for cached browsers
-    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('login.post');
 });
 
@@ -36,6 +38,11 @@ Route::middleware('auth')->group(function () {
     // ── Admin Only: User Management ──
     Route::middleware('can:user.view')->group(function () {
         Route::resource('users', UserManagementController::class)->except(['show']);
+    });
+
+    // ── Admin Only: Branch Management ──
+    Route::middleware('can:branch.view')->group(function () {
+        Route::resource('branches', \App\Http\Controllers\BranchController::class)->except(['show', 'create', 'edit']);
     });
 
     // ── Owner: Inventory ──

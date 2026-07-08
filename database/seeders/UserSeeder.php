@@ -45,5 +45,17 @@ class UserSeeder extends Seeder
             ]
         );
         $owner->assignRole('pemilik');
+
+        // Kasir user
+        $kasir = User::firstOrCreate(
+            ['email' => 'kasir@odot.test'],
+            [
+                'name'      => 'Kasir Toko',
+                'password'  => Hash::make('password'),
+                'phone'     => '081298765433',
+                'branch_id' => $branch->id,
+            ]
+        );
+        $kasir->assignRole('kasir');
     }
 }

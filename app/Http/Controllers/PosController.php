@@ -31,7 +31,7 @@ class PosController extends Controller
                     'stock'       => $product->quantity,
                     'image_url'   => $product->image ? asset('storage/' . $product->image) : null,
                 ];
-            });
+            })->values()->toArray();
 
         return view('pos.index', compact('categories', 'products'));
     }

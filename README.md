@@ -66,7 +66,10 @@ ODOT ERP adalah aplikasi Enterprise Resource Planning (ERP) dan Point of Sale (P
    ```bash
    php artisan migrate:fresh --seed
    ```
-   > **Catatan**: *Seeder* akan otomatis membuat akun Admin (`admin@odot.test`) dan Pemilik (`pemilik@odot.test`) dengan kata sandi `password`.
+   > **Akses Login Default (dari Seeder):**
+   > - **Pemilik**: `pemilik@odot.test` | Password: `password`
+   > - **Admin**: `admin@odot.test` | Password: `password`
+   > - **Kasir**: `kasir@odot.test` | Password: `password`
 
 5. **Jalankan Aplikasi**
    Buka 2 terminal terpisah, lalu jalankan perintah berikut:

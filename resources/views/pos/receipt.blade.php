@@ -81,7 +81,7 @@
     <!-- Receipt Content -->
     <div class="receipt">
         <div class="text-center mb-4">
-            <h2 style="margin: 0; font-size: 16px;">ODOT ERP</h2>
+            <h2 style="margin: 0; font-size: 16px;">Odot Mart</h2>
             @if($order->branch)
                 <div>{{ $order->branch->name }}</div>
                 <div>{{ $order->branch->address }}</div>

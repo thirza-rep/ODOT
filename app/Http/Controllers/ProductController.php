@@ -14,7 +14,7 @@ class ProductController extends Controller
     {
         $products = Product::with(['category', 'branch'])
             ->when($request->search, fn($q, $s) => $q->search($s))
-            ->when(auth()->user()->branch_id, fn($q, $bId) => $q->inBranch($bId))
+            ->when($request->user()->branch_id, fn($q, $bId) => $q->inBranch($bId))
             ->latest()
             ->paginate(15);
 
@@ -50,7 +50,7 @@ class ProductController extends Controller
         $validated['cost_price'] = $validated['cost_price'] / 1000;
         $validated['sell_price'] = $validated['sell_price'] / 1000;
 
-        $validated['branch_id'] = auth()->user()->branch_id; // Assigned to user's branch
+        $validated['branch_id'] = $request->user()->branch_id; // Assigned to user's branch
         
         if (empty($validated['sku'])) {
             $validated['sku'] = Product::generateSku(strtoupper(substr(Category::find($validated['category_id'])->name, 0, 3)));
@@ -63,10 +63,10 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan.');
     }
 
-    public function edit(Product $product)
+    public function edit(Request $request, Product $product)
     {
         // Pastikan hanya bisa edit produk di cabangnya sendiri
-        if (auth()->user()->branch_id && $product->branch_id !== auth()->user()->branch_id) {
+        if ($request->user()->branch_id && $product->branch_id !== $request->user()->branch_id) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -76,7 +76,7 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        if (auth()->user()->branch_id && $product->branch_id !== auth()->user()->branch_id) {
+        if ($request->user()->branch_id && $product->branch_id !== $request->user()->branch_id) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -111,9 +111,9 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui.');
     }
 
-    public function destroy(Product $product)
+    public function destroy(Request $request, Product $product)
     {
-        if (auth()->user()->branch_id && $product->branch_id !== auth()->user()->branch_id) {
+        if ($request->user()->branch_id && $product->branch_id !== $request->user()->branch_id) {
             abort(403, 'Unauthorized action.');
         }
 

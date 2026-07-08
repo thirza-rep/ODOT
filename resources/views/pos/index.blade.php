@@ -1,6 +1,6 @@
 <x-layouts.app title="Point of Sale">
     <div class="h-[calc(100vh-8rem)] flex flex-col lg:flex-row gap-6" 
-         x-data="posApp({{ json_encode($products) }})">
+         x-data="posApp()">
         
         {{-- Left: Products Grid --}}
         <div class="flex-1 flex flex-col min-h-0 bg-white rounded-3xl border border-surface-200 shadow-sm overflow-hidden">
@@ -232,9 +232,14 @@
     </div>
 
     @push('scripts')
+    <script id="pos-products-data" type="application/json">
+        {!! json_encode($products) !!}
+    </script>
     <script>
         document.addEventListener('alpine:init', () => {
-            Alpine.data('posApp', (initialProducts) => ({
+            const initialProducts = JSON.parse(document.getElementById('pos-products-data').textContent);
+            
+            Alpine.data('posApp', () => ({
                 products: initialProducts,
                 searchQuery: '',
                 activeCategory: null,

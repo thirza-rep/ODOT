@@ -71,5 +71,6 @@
     <style>
         [x-cloak] { display: none !important; }
     </style>
+    @stack('scripts')
 </body>
 </html>

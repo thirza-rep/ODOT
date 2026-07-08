@@ -148,12 +148,15 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
     @endpush
 
+    <script id="sales-data" type="application/json">
+        {!! json_encode($salesChart) !!}
+    </script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const ctx = document.getElementById('salesChart');
         if (!ctx) return;
 
-        const salesData = @json($salesChart);
+        const salesData = JSON.parse(document.getElementById('sales-data').textContent);
 
         new Chart(ctx, {
             type: 'bar',

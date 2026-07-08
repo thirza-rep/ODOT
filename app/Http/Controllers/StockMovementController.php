@@ -15,7 +15,7 @@ class StockMovementController extends Controller
             ->when($request->search, function ($q, $s) {
                 $q->whereHas('product', fn($q2) => $q2->where('name', 'like', "%{$s}%")->orWhere('sku', 'like', "%{$s}%"));
             })
-            ->when(auth()->user()->branch_id, fn($q, $bId) => $q->inBranch($bId))
+            ->when($request->user()->branch_id, fn($q, $bId) => $q->inBranch($bId))
             ->latest()
             ->paginate(20);
 
@@ -25,7 +25,7 @@ class StockMovementController extends Controller
     public function create(Request $request)
     {
         $products = Product::active()
-            ->when(auth()->user()->branch_id, fn($q, $bId) => $q->inBranch($bId))
+            ->when($request->user()->branch_id, fn($q, $bId) => $q->inBranch($bId))
             ->orderBy('name')
             ->get();
 
@@ -45,7 +45,7 @@ class StockMovementController extends Controller
 
         $product = Product::findOrFail($validated['product_id']);
 
-        if (auth()->user()->branch_id && $product->branch_id !== auth()->user()->branch_id) {
+        if ($request->user()->branch_id && $product->branch_id !== $request->user()->branch_id) {
             abort(403, 'Unauthorized action.');
         }
 

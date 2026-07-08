@@ -25,6 +25,12 @@ Route::middleware('guest')->group(function () {
 // ──────────────── Authenticated Routes ────────────────
 
 Route::middleware('auth')->group(function () {
+    // Coming soon redirect
+    Route::get('/coming-soon', function () {
+        return view('coming-soon');
+    })->name('coming-soon');
+
+    // Logout
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
     // Dashboard

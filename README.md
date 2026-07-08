@@ -1,4 +1,8 @@
-# ODOT ERP
+<div align="center">
+  <img src="public/images/logo.png" width="200" alt="ODOT ERP Logo">
+  
+  # ODOT ERP
+</div>
 
 ODOT ERP adalah aplikasi Enterprise Resource Planning (ERP) dan Point of Sale (POS) berbasis web yang dikembangkan menggunakan **Laravel 12**, **Tailwind CSS v4**, dan **Alpine.js**. Aplikasi ini dirancang untuk memudahkan pengelolaan kasir, inventaris, hingga pelaporan dengan antarmuka yang modern, cepat, dan responsif.
 

@@ -19,7 +19,7 @@
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(to right, #ccb90aff, #acef04ff);
+            background-image: linear-gradient(to right, #4F7DF3, #00C9A7);
         }
     </style>
 </head>

@@ -189,7 +189,7 @@
 
                 openEditModal(branch) {
                     this.isEditing = true;
-                    this.formAction = `/branches/${branch.id}`;
+                    this.formAction = `{{ url('/branches') }}/${branch.id}`;
                     this.form = {
                         id: branch.id,
                         name: branch.name,

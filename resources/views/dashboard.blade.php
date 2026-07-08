@@ -2,8 +2,8 @@
     {{-- Summary Cards --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
         {{-- Total Produk --}}
-        <div class="stat-card animate-slide-up" style="animation-delay: 0ms">
-            <div class="stat-card-icon bg-gradient-to-br from-primary-500 to-primary-600">
+        <div class="stat-card animate-slide-up group" style="animation-delay: 0ms">
+            <div class="stat-card-icon bg-gradient-to-br from-primary-500 to-primary-600 shadow-md shadow-primary-500/20 group-hover:scale-110 transition-transform duration-300">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/>
                 </svg>
@@ -15,8 +15,8 @@
         </div>
 
         {{-- Low Stock --}}
-        <div class="stat-card animate-slide-up" style="animation-delay: 75ms">
-            <div class="stat-card-icon bg-gradient-to-br from-amber-400 to-orange-500">
+        <div class="stat-card animate-slide-up group" style="animation-delay: 75ms">
+            <div class="stat-card-icon bg-gradient-to-br from-amber-400 to-orange-500 shadow-md shadow-orange-500/20 group-hover:scale-110 transition-transform duration-300">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
                 </svg>
@@ -28,8 +28,8 @@
         </div>
 
         {{-- Today Sales --}}
-        <div class="stat-card animate-slide-up" style="animation-delay: 150ms">
-            <div class="stat-card-icon bg-gradient-to-br from-accent-500 to-emerald-600">
+        <div class="stat-card animate-slide-up group" style="animation-delay: 150ms">
+            <div class="stat-card-icon bg-gradient-to-br from-accent-500 to-emerald-600 shadow-md shadow-emerald-500/20 group-hover:scale-110 transition-transform duration-300">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/>
                 </svg>
@@ -41,8 +41,8 @@
         </div>
 
         {{-- Today Revenue --}}
-        <div class="stat-card animate-slide-up" style="animation-delay: 225ms">
-            <div class="stat-card-icon bg-gradient-to-br from-violet-500 to-purple-600">
+        <div class="stat-card animate-slide-up group" style="animation-delay: 225ms">
+            <div class="stat-card-icon bg-gradient-to-br from-violet-500 to-purple-600 shadow-md shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
@@ -81,8 +81,8 @@
             </div>
             <div class="space-y-3">
                 @forelse($bestSelling as $index => $item)
-                    <div class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-surface-50 transition-colors">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br {{ ['from-primary-400 to-primary-500', 'from-accent-400 to-accent-500', 'from-violet-400 to-violet-500', 'from-amber-400 to-amber-500', 'from-rose-400 to-rose-500'][$index] ?? 'from-slate-400 to-slate-500' }} flex items-center justify-center text-white text-xs font-bold shrink-0">
+                    <div class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-surface-50 transition-colors border border-transparent hover:border-surface-200">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br {{ ['from-primary-400 to-primary-500', 'from-accent-400 to-accent-500', 'from-violet-400 to-violet-500', 'from-amber-400 to-amber-500', 'from-rose-400 to-rose-500'][$index] ?? 'from-slate-400 to-slate-500' }} flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-sm">
                             {{ $index + 1 }}
                         </div>
                         <div class="min-w-0 flex-1">
@@ -117,8 +117,8 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             @foreach($trendingProducts as $product)
-                <div class="flex items-center gap-3 p-3.5 rounded-xl bg-surface-50 border border-surface-100 hover:border-primary-200 hover:shadow-sm transition-all duration-200">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0
+                <div class="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-surface-200 shadow-sm hover:shadow-md hover:border-primary-300 transition-all duration-300 group cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform
                         {{ $product['trend'] === 'hot' ? 'bg-red-100 text-red-600' : ($product['trend'] === 'rising' ? 'bg-amber-100 text-amber-600' : 'bg-slate-100 text-slate-500') }}">
                         @if($product['trend'] === 'hot')
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.378 1.602a.75.75 0 00-.756 0 24.764 24.764 0 00-4.86 3.95A20.263 20.263 0 003 14.25c0 5.385 4.365 9.75 9.75 9.75s9.75-4.365 9.75-9.75c0-4.073-1.816-7.728-4.762-10.698a24.764 24.764 0 00-5.36-3.95z"/></svg>

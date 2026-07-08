@@ -1,17 +1,17 @@
 {{-- Sidebar Navigation --}}
-<aside class="fixed top-0 left-0 z-50 h-full bg-white border-r border-surface-200 shadow-sm transition-all duration-300 flex flex-col"
+<aside class="fixed top-0 left-0 z-50 h-full bg-slate-900 border-r border-slate-800 shadow-xl transition-all duration-300 flex flex-col"
        :class="[
            sidebarOpen ? 'w-64' : 'w-20',
            mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
        ]">
 
     {{-- Logo / Brand --}}
-    <div class="flex items-center gap-3 px-5 h-16 border-b border-surface-100 shrink-0">
+    <div class="flex items-center gap-3 px-5 h-16 border-b border-slate-800 shrink-0">
         <div class="w-9 h-9 flex items-center justify-center shrink-0">
             <img src="{{ asset('images/logo.png') }}" alt="ODOT ERP" class="w-full h-full object-contain rounded-lg">
         </div>
         <div x-show="sidebarOpen" x-transition class="overflow-hidden">
-            <h1 class="text-lg font-bold text-slate-800 leading-tight">ODOT</h1>
+            <h1 class="text-lg font-bold text-white leading-tight">ODOT</h1>
             <p class="text-[10px] text-slate-400 font-medium tracking-wider uppercase -mt-0.5">ERP System</p>
         </div>
     </div>
@@ -30,7 +30,7 @@
         @can('product.view')
         <div class="pt-4">
             <p x-show="sidebarOpen" class="px-3 mb-2 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Inventaris</p>
-            <div x-show="!sidebarOpen" class="border-t border-surface-100 mx-2 mb-2"></div>
+            <div x-show="!sidebarOpen" class="border-t border-slate-800 mx-2 mb-2"></div>
 
             <a href="{{ route('categories.index') }}" class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}">
                 <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -60,7 +60,7 @@
         @can('pos.access')
         <div class="pt-4">
             <p x-show="sidebarOpen" class="px-3 mb-2 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Kasir</p>
-            <div x-show="!sidebarOpen" class="border-t border-surface-100 mx-2 mb-2"></div>
+            <div x-show="!sidebarOpen" class="border-t border-slate-800 mx-2 mb-2"></div>
 
             <a href="{{ route('pos.index') }}" class="nav-link {{ request()->routeIs('pos.*') ? 'active' : '' }}">
                 <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@
         @can('report.view')
         <div class="pt-4">
             <p x-show="sidebarOpen" class="px-3 mb-2 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Laporan</p>
-            <div x-show="!sidebarOpen" class="border-t border-surface-100 mx-2 mb-2"></div>
+            <div x-show="!sidebarOpen" class="border-t border-slate-800 mx-2 mb-2"></div>
 
             <a href="{{ route('reports.index') }}" class="nav-link {{ request()->routeIs('reports.*') ? 'active' : '' }}">
                 <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@
         @can('user.view')
         <div class="pt-4">
             <p x-show="sidebarOpen" class="px-3 mb-2 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Administrasi</p>
-            <div x-show="!sidebarOpen" class="border-t border-surface-100 mx-2 mb-2"></div>
+            <div x-show="!sidebarOpen" class="border-t border-slate-800 mx-2 mb-2"></div>
 
             <a href="{{ route('users.index') }}" class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}">
                 <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -104,7 +104,7 @@
         @can('branch.view')
         <div class="pt-4">
             <p x-show="sidebarOpen" class="px-3 mb-2 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Cabang</p>
-            <div x-show="!sidebarOpen" class="border-t border-surface-100 mx-2 mb-2"></div>
+            <div x-show="!sidebarOpen" class="border-t border-slate-800 mx-2 mb-2"></div>
 
             <a href="{{ route('branches.index') }}" class="nav-link {{ request()->routeIs('branches.*') ? 'active' : '' }}">
                 <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -117,9 +117,9 @@
     </nav>
 
     {{-- Sidebar Footer: Collapse Toggle --}}
-    <div class="border-t border-surface-100 px-3 py-3 shrink-0 hidden lg:block">
+    <div class="border-t border-slate-800 px-3 py-3 shrink-0 hidden lg:block">
         <button @click="sidebarOpen = !sidebarOpen"
-                class="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl text-sm text-slate-400 hover:bg-surface-50 hover:text-slate-600 transition-colors cursor-pointer">
+                class="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl text-sm text-slate-500 hover:bg-slate-800 hover:text-slate-300 transition-colors cursor-pointer">
             <svg class="w-5 h-5 transition-transform duration-300" :class="sidebarOpen ? '' : 'rotate-180'" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5"/>
             </svg>

@@ -23,8 +23,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
 
-            // Temporary redirect for Vercel deployment
-            return redirect()->intended(route('coming-soon'));
+            return redirect()->intended(route('dashboard'));
         }
 
         return back()->withErrors([

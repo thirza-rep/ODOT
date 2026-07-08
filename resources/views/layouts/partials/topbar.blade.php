@@ -1,5 +1,5 @@
 {{-- Topbar --}}
-<header class="sticky top-0 z-30 h-16 bg-white/80 backdrop-blur-lg border-b border-surface-100 flex items-center justify-between px-4 md:px-6 lg:px-8">
+<header class="sticky top-0 z-30 h-16 bg-white/70 backdrop-blur-xl border-b border-surface-200/60 shadow-sm flex items-center justify-between px-4 md:px-6 lg:px-8">
     {{-- Left: Mobile menu toggle + Page title --}}
     <div class="flex items-center gap-3">
         <button @click="mobileSidebarOpen = !mobileSidebarOpen"
@@ -51,7 +51,7 @@
                  x-transition:leave="transition ease-in duration-150"
                  x-transition:leave-start="opacity-100 scale-100"
                  x-transition:leave-end="opacity-0 scale-95"
-                 class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-surface-200 py-1.5 z-50"
+                 class="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-surface-100 py-1.5 z-50 ring-1 ring-black/5"
                  x-cloak>
 
                 <div class="px-4 py-2.5 border-b border-surface-100">

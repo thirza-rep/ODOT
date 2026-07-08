@@ -18,9 +18,11 @@ Route::get('/', function () {
 
 // ──────────────── Guest Routes ────────────────
 Route::middleware('guest')->group(function () {
-    // Temporary bypass: redirect login directly to coming soon
     Route::get('/login', function () {
-        return view('coming-soon');
+        if (env('VERCEL') == '1' || app()->environment('production')) {
+            return view('coming-soon');
+        }
+        return app(\App\Http\Controllers\Auth\LoginController::class)->showLoginForm();
     })->name('login');
     
     Route::post('/login', [LoginController::class, 'login'])->name('login.post');

@@ -12,15 +12,17 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-screen bg-gradient-to-br from-primary-500 via-primary-600 to-primary-800 flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center p-4 relative" style="background-image: url('{{ asset('images/logo.png') }}'); background-size: cover; background-position: center;">
+    {{-- Dark overlay with blur --}}
+    <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-md pointer-events-none z-0"></div>
+    
     {{-- Decorative Background Elements --}}
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
-        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/3 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-500/30 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-500/30 rounded-full blur-3xl"></div>
     </div>
 
-    <div class="relative w-full max-w-md">
+    <div class="relative w-full max-w-md z-10">
         {{ $slot }}
     </div>
 </body>

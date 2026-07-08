@@ -18,18 +18,17 @@ Route::get('/', function () {
 
 // ──────────────── Guest Routes ────────────────
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+    // Temporary bypass: redirect login directly to coming soon
+    Route::get('/login', function () {
+        return view('coming-soon');
+    })->name('login');
+    
     Route::post('/login', [LoginController::class, 'login'])->name('login.post');
 });
 
 // ──────────────── Authenticated Routes ────────────────
 
 Route::middleware('auth')->group(function () {
-    // Coming soon redirect
-    Route::get('/coming-soon', function () {
-        return view('coming-soon');
-    })->name('coming-soon');
-
     // Logout
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 

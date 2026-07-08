@@ -26,9 +26,11 @@
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
+        "APP_KEY": "base64:xNa/CawI1CKH6fQ4ZZPy8CyW2OoW73ymlBeo3F6fbDo=",
         "CACHE_DRIVER": "array",
         "SESSION_DRIVER": "cookie",
-        "QUEUE_CONNECTION": "sync"
+        "QUEUE_CONNECTION": "sync",
+        "VIEW_COMPILED_PATH": "/tmp"
     }
 }

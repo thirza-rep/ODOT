@@ -12,15 +12,11 @@
     ],
     "routes": [
         {
-            "src": "/build/(.*)",
-            "dest": "/public/build/$1"
+            "src": "/(build|images|assets)/(.*)",
+            "dest": "/public/$1/$2"
         },
         {
-            "src": "/images/(.*)",
-            "dest": "/public/images/$1"
-        },
-        {
-            "src": "/(.*)",
+            "src": "/(?!public/)(.*)",
             "dest": "/api/index.php"
         }
     ],

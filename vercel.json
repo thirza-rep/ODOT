@@ -34,6 +34,9 @@
         "CACHE_DRIVER": "array",
         "SESSION_DRIVER": "cookie",
         "QUEUE_CONNECTION": "sync",
-        "VIEW_COMPILED_PATH": "/tmp/storage/framework/views"
+        "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
+        "DB_CONNECTION": "pgsql",
+        "DB_URL": "postgresql://neondb_owner:npg_vRwe8kJMmac2@ep-long-shadow-at6tipp4.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require",
+        "DB_PORT": "5432"
     }
 }

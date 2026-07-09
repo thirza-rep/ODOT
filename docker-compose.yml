@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: odot-erp-app
+    container_name: odot-app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      # Don't override node_modules and vendor mapped in image if developing locally
+      - /var/www/html/vendor
+      - /var/www/html/node_modules
+    networks:
+      - odot-network
+    depends_on:
+      - db
+
+  webserver:
+    image: nginx:alpine
+    container_name: odot-webserver
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - odot-network
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    container_name: odot-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-odot}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
+      MYSQL_USER: ${DB_USERNAME:-odot_user}
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    ports:
+      - "33061:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - odot-network
+
+networks:
+  odot-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local

@@ -42,6 +42,6 @@
         "DB_USERNAME": "neondb_owner",
         "DB_PASSWORD": "npg_vRwe8kJMmac2",
         "DB_SSLMODE": "require",
-        "PGOPTIONS": "-c endpoint=ep-long-shadow-at6tipp4"
+        "PGOPTIONS": "endpoint=ep-long-shadow-at6tipp4"
     }
 }

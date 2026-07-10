@@ -36,7 +36,12 @@
         "QUEUE_CONNECTION": "sync",
         "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
         "DB_CONNECTION": "pgsql",
-        "DB_URL": "postgresql://neondb_owner:npg_vRwe8kJMmac2@ep-long-shadow-at6tipp4.c-9.us-east-1.aws.neon.tech/neondb?options=endpoint%3Dep-long-shadow-at6tipp4&sslmode=require",
-        "DB_PORT": "5432"
+        "DB_HOST": "ep-long-shadow-at6tipp4.c-9.us-east-1.aws.neon.tech",
+        "DB_PORT": "5432",
+        "DB_DATABASE": "neondb",
+        "DB_USERNAME": "neondb_owner",
+        "DB_PASSWORD": "npg_vRwe8kJMmac2",
+        "DB_SSLMODE": "require",
+        "PGOPTIONS": "-c endpoint=ep-long-shadow-at6tipp4"
     }
 }
